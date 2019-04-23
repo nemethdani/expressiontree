@@ -1,0 +1,94 @@
+<svg width="1513" height="696" version="1.1" baseProfile="full" viewbox="0 0 1513 696" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" style="font-weight:bold; font-size:12pt; font-family:'Calibri', Helvetica, sans-serif;;stroke-width:3;stroke-linejoin:round;stroke-linecap:round"><path d="M326.2 227 L150 318.5 L150 421 L150 421 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<path d="M316.9 237.9 L314.4 233.1 L312 228.4 L326.2 227 Z" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></path>
+<path d="M463 227 L463 318.5 L463 413.5 L463 413.5 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<path d="M468.3 240.3 L463 240.3 L457.7 240.3 L463 227 Z" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></path>
+<path d="M622.5 227 L828 318.5 L828 412 L828 412 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<path d="M822.7 402.7 L828 393.3 L833.3 402.7 L828 412 Z" style="stroke:#33322E;fill:#33322E;stroke-dasharray:none;"></path>
+<text x="1286.5" y="318.5" style="font-weight:normal;">&lt;&lt;bind:Element&gt;&gt;</text>
+<path d="M1278.5 298.5 L1278.5 318.5 L1278.5 338.5 L1278.5 338.5 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<path d="M1273.2 329.2 L1278.5 319.8 L1283.8 329.2 L1278.5 338.5 Z" style="stroke:#33322E;fill:#33322E;stroke-dasharray:none;"></path>
+<rect x="288.5" y="85.5" height="142" width="349" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+<text x="410.8" y="107" style="font-weight:normal;font-style:italic;">ElementBase</text>
+<path d="M288.5 116.5 L637.5 116.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="301.5" y="129.5" height="31" width="26" style="stroke:#33322E;fill:#fdf6e3;stroke-dasharray:6 6;"></rect>
+<text x="309.8" y="151" style="font-weight:normal;">T</text>
+<path d="M288.5 173.5 L637.5 173.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<path d="M288.5 181.5 L637.5 181.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="296.5" y="203" style="font-weight:normal;">virtual copy()const=0: ElementBase*</text>
+<text x="296.5" y="218" style="font-weight:normal;">&lt;&lt;dtor&gt;&gt; virtual ~ElementBase()</text>
+<rect x="13.5" y="421.5" height="180" width="273" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+<text x="116.8" y="443" style="">Operand</text>
+<path d="M13.5 452.5 L286.5 452.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="26.5" y="465.5" height="31" width="26" style="stroke:#33322E;fill:#fdf6e3;stroke-dasharray:6 6;"></rect>
+<text x="34.8" y="487" style="font-weight:normal;">T</text>
+<path d="M13.5 509.5 L286.5 509.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="21.5" y="531" style="font-weight:normal;">value: T</text>
+<path d="M13.5 540.5 L286.5 540.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="21.5" y="562" style="font-weight:normal;">&lt;&lt;ctor&gt;&gt; Operand(number: T)</text>
+<text x="21.5" y="577" style="font-weight:normal;">copy()const: ElementBase*</text>
+<text x="21.5" y="592" style="font-weight:normal;">isOperator(): static bool</text>
+<rect x="326.5" y="413.5" height="195" width="273" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+<text x="425" y="435" style="">Operator</text>
+<path d="M326.5 444.5 L599.5 444.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="339.5" y="457.5" height="31" width="26" style="stroke:#33322E;fill:#fdf6e3;stroke-dasharray:6 6;"></rect>
+<text x="347.8" y="479" style="font-weight:normal;">T</text>
+<path d="M326.5 501.5 L599.5 501.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="334.5" y="523" style="font-weight:normal;">type: char</text>
+<path d="M326.5 532.5 L599.5 532.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="334.5" y="554" style="font-weight:normal;">&lt;&lt;ctor&gt;&gt; Operator(c: char)</text>
+<text x="334.5" y="569" style="font-weight:normal;">copy()const: ElementBase*</text>
+<text x="334.5" y="584" style="font-weight:normal;">isOperator(): static bool</text>
+<text x="334.5" y="599" style="font-weight:normal;">Operation(lhs: T, rhs: T):T</text>
+<rect x="639.5" y="412.5" height="198" width="377" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+<text x="794.8" y="434" style="">Element</text>
+<path d="M639.5 443.5 L1016.5 443.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="647.5" y="465" style="font-weight:normal;">e: ElementBase*</text>
+<path d="M639.5 474.5 L1016.5 474.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="647.5" y="496" style="font-weight:normal;">&lt;&lt;ctor&gt;&gt; Element(e: ElementBase*)</text>
+<text x="647.5" y="511" style="font-weight:normal;">&lt;&lt;cpyctor&gt;&gt; Element(e: const Element&amp;)</text>
+<text x="647.5" y="526" style="font-weight:normal;">&lt;&lt;dtor&gt;&gt; ~Element()</text>
+<text x="647.5" y="541" style="font-weight:normal;">operator=(e: const Element&amp;): Element&amp;</text>
+<text x="647.5" y="556" style="font-weight:normal;">operator-&gt;(): ElementBase*</text>
+<text x="647.5" y="571" style="font-weight:normal;">operator-&gt;()const: const ElementBase*</text>
+<text x="647.5" y="586" style="font-weight:normal;">operator*(): ElementBase&amp;</text>
+<text x="647.5" y="601" style="font-weight:normal;">operator*()const: const ElementBase&amp;</text>
+<rect x="1113.5" y="13.5" height="285" width="330" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+<text x="1254.8" y="35" style="">Stack</text>
+<path d="M1113.5 44.5 L1443.5 44.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="1126.5" y="57.5" height="31" width="26" style="stroke:#33322E;fill:#fdf6e3;stroke-dasharray:6 6;"></rect>
+<text x="1134.8" y="79" style="font-weight:normal;">T</text>
+<path d="M1113.5 101.5 L1443.5 101.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="1121.5" y="123" style="font-weight:normal;">data: T*</text>
+<text x="1121.5" y="138" style="font-weight:normal;">size: size_t</text>
+<text x="1121.5" y="153" style="font-weight:normal;">actual: size_t</text>
+<path d="M1113.5 162.5 L1443.5 162.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="1121.5" y="184" style="font-weight:normal;">&lt;&lt;ctor&gt;&gt; Stack(s: size_t)</text>
+<text x="1121.5" y="199" style="font-weight:normal;">&lt;&lt;dtor&gt;&gt; ~Stack()</text>
+<text x="1121.5" y="214" style="font-weight:normal;">&lt;&lt;cpyctor&gt;&gt; Stack(s const Stack&amp;)</text>
+<text x="1121.5" y="229" style="font-weight:normal;">operator=(s const Stack&amp;): Stack&amp;</text>
+<text x="1121.5" y="244" style="font-weight:normal;">top()const: const T&amp;</text>
+<text x="1121.5" y="259" style="font-weight:normal;">top(): T&amp;</text>
+<text x="1121.5" y="274" style="font-weight:normal;">pop(): void</text>
+<text x="1121.5" y="289" style="font-weight:normal;">push(val: T): void</text>
+<rect x="1056.5" y="338.5" height="345" width="444" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+<text x="1231" y="360" style="">Expression</text>
+<path d="M1056.5 369.5 L1500.5 369.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="1069.5" y="382.5" height="31" width="26" style="stroke:#33322E;fill:#fdf6e3;stroke-dasharray:6 6;"></rect>
+<text x="1077.8" y="404" style="font-weight:normal;">T</text>
+<path d="M1056.5 426.5 L1500.5 426.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="1064.5" y="448" style="font-weight:normal;">postfix: Stack&lt;T&gt;</text>
+<path d="M1056.5 457.5 L1500.5 457.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="1064.5" y="479" style="font-weight:normal;">&lt;&lt;ctor&gt;&gt; Expression(infix :string)</text>
+<text x="1064.5" y="494" style="font-weight:normal;">&lt;&lt;ctor&gt;&gt; Expression(value: T)</text>
+<text x="1064.5" y="509" style="font-weight:normal;">eval(): T</text>
+<text x="1064.5" y="524" style="font-weight:normal;">getInfix(): string</text>
+<text x="1064.5" y="539" style="font-weight:normal;">getPostfix(): string</text>
+<text x="1064.5" y="554" style="font-weight:normal;">getPrefix(): string</text>
+<text x="1064.5" y="569" style="font-weight:normal;">operator+(e: const Expression&amp;): Expression</text>
+<text x="1064.5" y="584" style="font-weight:normal;">operator+=(e: const Expression&amp;): Expression&amp;</text>
+<text x="1064.5" y="599" style="font-weight:normal;">operator-(e: const Expression&amp;): Expression</text>
+<text x="1064.5" y="614" style="font-weight:normal;">operator-=(e: const Expression&amp;): Expression&amp;</text>
+<text x="1064.5" y="629" style="font-weight:normal;">operator*(e: const Expression&amp;): Expression</text>
+<text x="1064.5" y="644" style="font-weight:normal;">operator*=(e: const Expression&amp;): Expression&amp;</text>
+<text x="1064.5" y="659" style="font-weight:normal;">operator/(e: const Expression&amp;): Expression</text>
+<text x="1064.5" y="674" style="font-weight:normal;">operator/=(e: const Expression&amp;): Expression&amp;</text></svg>

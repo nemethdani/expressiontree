@@ -1,0 +1,73 @@
+[<abstract>ElementBase|
+[<dashed> T]|
+|
+virtual copy()const=0: ElementBase*
+<<dtor>> virtual ~ElementBase()
+
+]<:-[Operand|
+[<dashed> T]|
+value: T |
+<<ctor>> Operand(number: T)
+copy()const: ElementBase*
+isOperator(): static bool
+]
+
+[ElementBase]<:-[Operator|
+[<dashed> T]|
+type: char|
+<<ctor>> Operator(c: char)
+copy()const: ElementBase*
+isOperator(): static bool
+Operation(lhs: T, rhs: T):T
+]
+
+[ElementBase]-+[Element|
+e: ElementBase*|
+<<ctor>> Element(e: ElementBase*)
+<<cpyctor>> Element(e: const Element&)
+<<dtor>> ~Element()
+operator=(e: const Element&): Element&
+operator->(): ElementBase*
+operator->()const: const ElementBase*
+operator*(): ElementBase&
+operator*()const: const ElementBase&
+]
+
+[Stack|
+[<dashed> T]
+|
+data: T*
+size: size_t
+actual: size_t |
+<<ctor>> Stack(s: size_t)
+<<dtor>> ~Stack()
+<<cpyctor>> Stack(s const Stack&)
+operator=(s const Stack&): Stack&
+top()const: const T&
+top(): T&
+pop(): void
+push(val: T): void
+]
+
+[Stack]<<bind:Element>>-+[Expression|
+[<dashed> T]|
+postfix: Stack<T> |
+<<ctor>> Expression(infix :string)
+<<ctor>> Expression(value: T)
+eval(): T
+getInfix(): string
+getPostfix(): string
+getPrefix(): string
+operator+(e: const Expression&): Expression
+operator+=(e: const Expression&): Expression&
+operator-(e: const Expression&): Expression
+operator-=(e: const Expression&): Expression&
+operator*(e: const Expression&): Expression
+operator*=(e: const Expression&): Expression&
+operator/(e: const Expression&): Expression
+operator/=(e: const Expression&): Expression&
+]
+
+#.dashed: dashed
+
+
