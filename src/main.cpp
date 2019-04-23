@@ -2,6 +2,12 @@
 #include <stdexcept>
 
 #include "stack.hpp"
+#include "ElementBase.hpp"
+#include "Element.hpp"
+#include "Expression.hpp"
+#include "Operand.hpp"
+#include "Operator.hpp"
+
 
 void stacktest(){
     //ures stack,10es stack
