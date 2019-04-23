@@ -3,6 +3,7 @@
 
 #include "ElementBase.hpp"
 
+
 /// Operandus tipusu elemek.
 /// @param T - adattpus
 template <typename T>

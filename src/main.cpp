@@ -2,7 +2,6 @@
 #include <stdexcept>
 
 #include "stack.hpp"
-
 #include "Element.hpp"
 #include "Expression.hpp"
 #include "Operand.hpp"
@@ -17,6 +16,8 @@ void stacktest(){
     s0.push(2);
     Stack<int> s1=s0;
     s10=s0;
+    
+
     
     s10.pop();
     s10.pop();
