@@ -1,9 +1,12 @@
+#ifndef OPERAND_HPP_INCLUDED
+#define OPERAND_HPP_INCLUDED
+
 #include "ElementBase.hpp"
 
 /// Operandus tipusu elemek.
 /// @param T - adattpus
-template<typename T>
-class Operand{
+template <typename T>
+class Operand : public ElementBase<T>{
     T value;
 public:
     /// Operandus kontruktor
@@ -11,8 +14,10 @@ public:
     Operand(T number=T()):value(number){};
 
     /// Operandus masolo
-    ElementBase* copy()const{return new Operand(*this);};
+    ElementBase<T>* copy()const{return new Operand<T>(*this);}
     /// Operator-e az elem?
     static bool isOperator(){return false;};
 
-}
+};
+
+#endif

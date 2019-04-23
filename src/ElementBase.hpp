@@ -1,3 +1,6 @@
+#ifndef ELEMENTBASE_HPP_INCLUDED
+#define ELEMENTBASE_HPP_INCLUDED
+
 /// Kifejezes elemeinek absztrakt ososztalya sablon.
 /// @param T - adattpus
 template<typename T>
@@ -10,6 +13,8 @@ public:
     /// virtualis destruktor
     virtual ~ElementBase();
     ///operator-e az elem?
-    virtual static bool isOperator()=0;
+    virtual bool isOperator()const=0;
 
 };
+
+#endif
