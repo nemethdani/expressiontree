@@ -10,6 +10,7 @@ class Stack{
     size_t size;
     size_t actual;
     T* data;
+    
 
 
     /// Ures-e?

@@ -11,7 +11,7 @@ class Element{
 public:
 
     /// Konstruktor
-    explicit Element(ElementBase<T>* e):e(e){};
+    explicit Element(ElementBase<T>* e=NULL):e(e){};
     /// Lemasol egy Elementet
     /// @param tocopy - masolando Element
     Element(const Element& tocopy){
