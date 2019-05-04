@@ -1,6 +1,5 @@
 CXX		  := g++
-CXX_FLAGS := --std=c++11 -Wall -Werror -pedantic -ggdb -c
-#CXX_FLAGS := -Wall -Wextra -std=c++17 -ggdb
+CXX_FLAGS := -Wall -Werror -pedantic -std=c++11 -g -ggdb
 
 BIN		:= bin
 SRC		:= src
@@ -11,10 +10,10 @@ LIBRARIES	:=
 EXECUTABLE	:= main
 
 
-all: $(BIN)/$(EXECUTABLE)
+all: clear $(BIN)/$(EXECUTABLE)
 
 run: clean all
-	clear
+
 	./$(BIN)/$(EXECUTABLE)
 
 $(BIN)/$(EXECUTABLE): $(SRC)/*.cpp
@@ -22,3 +21,5 @@ $(BIN)/$(EXECUTABLE): $(SRC)/*.cpp
 
 clean:
 	-rm $(BIN)/*
+clear:
+	clear

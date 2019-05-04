@@ -11,9 +11,11 @@ public:
     /// @return - a lemasolt elementbase-re mutato pointer
     virtual ElementBase* copy()const=0;
     /// virtualis destruktor
-    virtual ~ElementBase();
+    virtual ~ElementBase(){};
     ///operator-e az elem?
     virtual bool isOperator()const=0;
+    virtual  T Operation(T lhs, T rhs) {return T();};
+    virtual T getval()const {return T();};
 
 };
 

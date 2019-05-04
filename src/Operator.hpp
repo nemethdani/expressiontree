@@ -1,7 +1,7 @@
 #ifndef OPERATOR_HPP_INCLUDED
 #define OPERATOR_HPP_INCLUDED
 
-#include "ElementBase.hpp"
+#include "Element.hpp"
 
 /// Operator tipusu elemek.
 /// @param T - adattpus
@@ -18,12 +18,19 @@ public:
     ElementBase<T>* copy()const{return new Operator<T>(*this);};
     /// Operator-e?
     /// @return - igen.
-    static bool isOperator(){return true;};
+    bool isOperator(){return true;};
 
     /// Vegrehajtja a beallitott muveletet a ket parameterre
     /// @param lhs - bal oldali operandus
     /// @param rhs - jobb oldali operandus
-    T Operation(T lhs, T rhs){};
+    T Operation(T lhs, T rhs){
+        switch(type){
+            case '+': return lhs+rhs;
+            case '-': return lhs-rhs;
+            case '*': return lhs*rhs;
+            case '/': return lhs/rhs;
+        }
+    };
 
 };
 

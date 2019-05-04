@@ -93,6 +93,21 @@ class Stack{
         data[actual]=val;
         actual++;
     }
+
+    /// Lekerdezi a stack aktualis meretet
+    /// @return - stack merete
+    size_t getactual()const{return size;}
+
+
+    /// Uj stacket hoz létre az eredeti elemeivel, fordított sorrendben
+    /// @retrun forditott sorrendu stack
+    Stack megfordit()const{
+        Stack forditott(actual);
+        for(size_t i=0;i<actual;++i){
+            forditott.push(data[i]);
+        }
+        return forditott;
+    }
         
 
 };

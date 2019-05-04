@@ -1,7 +1,7 @@
 #ifndef OPERAND_HPP_INCLUDED
 #define OPERAND_HPP_INCLUDED
 
-#include "ElementBase.hpp"
+#include "Element.hpp"
 
 
 /// Operandus tipusu elemek.
@@ -17,7 +17,8 @@ public:
     /// Operandus masolo
     ElementBase<T>* copy()const{return new Operand<T>(*this);}
     /// Operator-e az elem?
-    static bool isOperator(){return false;};
+    bool isOperator()const{return false;}
+    T getval()const{ return value;};
 
 };
 

@@ -2,6 +2,8 @@
 #define EXPRESSION_HPP_INCLUDED
 
 #include "stack.hpp"
+#include "Operand.hpp"
+#include "Element.hpp"
 
 /// Kifejezések osztálya
 /// @param T - adattípus
@@ -59,5 +61,7 @@ public:
     /// @return - kifejezések hanyadosa helyben
     Expression& operator/=(const Expression& e);
 };
+
+#include "Expression.tpp"
 
 #endif
