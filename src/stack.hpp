@@ -33,8 +33,8 @@ class Stack{
     public:
 
     /// Konstruktor
-    /// @param s - a kívánt méret (alapértelmezetten 0)
-    Stack(size_t s=0):
+    /// @param s - a kívánt méret (alapértelmezetten 1)
+    Stack(size_t s=1):
         size(s),
         actual(0),
         data(new T[size]){}
@@ -96,7 +96,7 @@ class Stack{
 
     /// Lekerdezi a stack aktualis meretet
     /// @return - stack merete
-    size_t getactual()const{return size;}
+    size_t getactual()const{return actual;}
 
 
     /// Uj stacket hoz létre az eredeti elemeivel, fordított sorrendben
@@ -104,7 +104,7 @@ class Stack{
     Stack megfordit()const{
         Stack forditott(actual);
         for(size_t i=0;i<actual;++i){
-            forditott.push(data[i]);
+            forditott.push(data[actual-1-i]);
         }
         return forditott;
     }

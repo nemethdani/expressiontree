@@ -16,24 +16,27 @@ void stacktest(){
     s0.push(0);
     s0.push(1);
     s0.push(2);
+    s10=s0;
     std::cout<<"aktualis meret: " <<s0.getactual()<< " elvart:3"<<std::endl;
     Stack<int> s1=s0;
     Stack<int> s1_forditva=s1.megfordit();
     std::cout<<"s1:"<<std::endl;
     while(s1.getactual()!=0){std::cout<<s1.top()<<"\n";s1.pop();}
-    while(s1_forditva.getactual()!=0){std::cout<<s1_forditva.top()<<"\n";s1.pop();}
-    s10=s0;
+    std::cout<<"s1 forditva:"<<std::endl;
+    while(s1_forditva.getactual()!=0){std::cout<<s1_forditva.top()<<"\n";s1_forditva.pop();}
+    
     s10.pop();
     s10.pop();
-    snull.top();
-    snull.pop();
+    // snull.top();
+    // snull.pop();
 }
 
 void expressiontest(){
     
     Expression<int> e1(1), e2(2);
     //Expression<int> e0=e1+e2;
-    std::cout<<e1.eval();
+    std::cout<<"e1: "<<e1.eval()<<std::endl;
+    std::cout<<"e2: "<<e2.eval()<<std::endl;
     // std::cout<<e0.getInfix();
     // std::cout<<e0.getPostfix();
     // std::cout<<e0.getPrefix();
