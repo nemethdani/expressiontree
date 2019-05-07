@@ -8,16 +8,12 @@ Expression<T>::Expression(std::string infix){
 
 }
 
-/// Értékből készít kifejezést
-/// @param value - ezt az értéket rendli a kifejezéshez
 template <typename T>
 Expression<T>::Expression(T value){
-    ElementBase<T>* eb(new Operand<T>(value));
+    ElementBase<T>* eb=(new Operand<T>(value));
     postfix.push(Element<T>(eb));
 }
 
-/// Kiértékeli a kifejezést
-/// @return - A kifejezés értéke
 template <typename T>
 T Expression<T>::eval()const{
     /// Stack megfordit
@@ -48,10 +44,23 @@ T Expression<T>::eval()const{
 // /// @return - String, infix formában
 // template <typename T>
 // std::string Expression<T>::getInfix()const{}
-// /// postfix formátumba konvertálás
-// /// @return - String, postfix formában
-// template <typename T>
-// std::string Expression<T>::getPostfix()const{}
+
+
+/// postfix formátumba konvertálás
+/// @return - String, postfix formában
+template <typename T>
+std::string Expression<T>::getPostfix()const{
+    std::string s;
+    Stack<Element<T>> forditott=postfix.megfordit();
+    for(size_t i=0;i<postfix.getactual();++i){
+        std::string sn=postfix.top()->operator std::string();
+        s+=sn;
+        forditott.pop();
+    }
+    return s;
+}
+
+
 // /// prefix formátumba konvertálás
 // /// @return - String, prefix formában
 // template <typename T>

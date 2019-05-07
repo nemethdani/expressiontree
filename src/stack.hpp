@@ -15,7 +15,7 @@ class Stack{
 
     /// Ures-e?
     /// @return - true, ha üres, egyébként false
-    bool isEmpty(){return actual==0;}
+    bool isEmpty()const{return actual==0;}
 
     /// Atmeretezes
     /// @param newsize - a kívánt új méret
@@ -108,8 +108,20 @@ class Stack{
         }
         return forditott;
     }
+
         
 
 };
+
+// namespace Stack{
+//     /// Stacket kiír lentről fel
+//     /// @retrun - ostream karaktersor
+//     std::ostream& operator<<(std::ostream& os, const Stack& s){
+//         Stack forditott=s.megfordit();
+//         for(size_t i=0;i<s.getactual();++i){
+
+//         }
+//     }
+// }
 
 #endif

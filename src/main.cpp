@@ -38,7 +38,8 @@ void expressiontest(){
     std::cout<<"e1: "<<e1.eval()<<std::endl;
     std::cout<<"e2: "<<e2.eval()<<std::endl;
     // std::cout<<e0.getInfix();
-    // std::cout<<e0.getPostfix();
+    std::cout<<e1.getPostfix()<<std::endl;
+    std::cout<<e2.getPostfix()<<std::endl;
     // std::cout<<e0.getPrefix();
     // Expression<int> estring("5+3*6");
     // estring*=2;

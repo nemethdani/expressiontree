@@ -2,6 +2,7 @@
 #define OPERATOR_HPP_INCLUDED
 
 #include "Element.hpp"
+#include <string>
 
 /// Operator tipusu elemek.
 /// @param T - adattpus
@@ -31,6 +32,9 @@ public:
             case '/': return lhs/rhs;
         }
     };
+
+    operator std::string()const{return std::string(1,type);};
+    operator std::string&(){return std::string(1,type);};
 
 };
 

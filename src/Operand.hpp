@@ -2,6 +2,7 @@
 #define OPERAND_HPP_INCLUDED
 
 #include "Element.hpp"
+#include <string>
 
 
 /// Operandus tipusu elemek.
@@ -18,7 +19,13 @@ public:
     ElementBase<T>* copy()const{return new Operand<T>(*this);}
     /// Operator-e az elem?
     bool isOperator()const{return false;}
+    /// Visszaadja az operandus erteket
+    /// @return operandus erteke
     T getval()const{ return value;};
+
+    //operator std::string&(){return std::to_string(value);};
+    operator std::string()const {return std::to_string(value);};
+   
 
 };
 
