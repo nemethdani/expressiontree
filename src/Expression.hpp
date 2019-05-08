@@ -4,12 +4,35 @@
 #include "stack.hpp"
 #include "Operand.hpp"
 #include "Element.hpp"
+#include "Operator.hpp"
 
 /// Kifejezések osztálya
 /// @param T - adattípus
 template <typename T>
 class Expression{
     Stack<Element<T>> postfix;
+    /// precedenciat ad vissza operatorokhoz
+    /// @param c - operator karaktere
+    /// @return - */: 2, +-:1, egyebkent -1
+    int precedence(char c){
+        if(c == '*' || c == '/') 
+        return 2; 
+        else if(c == '+' || c == '-') 
+        return 1; 
+        else
+        return -1; 
+    }
+
+    /// a kapott karakter operator-e
+    /// @return true, ha operator, egyebken false
+    bool isoperatorchar(char c){return (precedence(c)==1 || precedence(c)==2);};
+
+    /// Szamjegyekbol allo stringbol keszit szamot
+    /// @param szamjegyeket es esetleg pontot(tizedesjegy) tartalmazo string
+    /// @return T tipusu szam
+    T stringtonum(const std::string& s)const;
+    Element<T> valuetoelement(T value)const;
+    void pushszam(std::string& szam);
 
 public:
 

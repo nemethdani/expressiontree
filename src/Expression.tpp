@@ -1,17 +1,109 @@
 //#include "Expression.hpp"
 
+#include <sstream>
+
+
+
+template <typename T>
+T Expression<T>::stringtonum(const std::string& s)const{
+    
+    std::stringstream ss(s);
+    T x = 0; 
+    ss >> x;
+    return x;
+}
 
 /// Infix stringből készít kifejezést
 /// @param infix - Infix formátumban megadott string, lehet benne zárójel és space
 template <typename T>
 Expression<T>::Expression(std::string infix){
+    std::string szam="";
+    //T val;
+    Stack<Element<T>> temp;
+    //temp.push('N')
+    size_t len=infix.size();
+    for(size_t i=0;i<len;++i){
 
+        //operator
+        if(isoperatorchar(infix[i])){
+            ElementBase<T>* eb=(new Operator<T>(infix[i]));
+            Element<T> e(eb);
+            pushszam(szam);
+            while(!temp.isEmpty() && e->precedence() <= temp.top()->precedence()) 
+            { 
+                Element<T> e = temp.top(); 
+                temp.pop(); 
+                postfix.push(e); 
+            } 
+            
+            
+            temp.push(e);
+            
+        }
+
+        // (
+            
+        else if(infix[i] == '('){
+            pushszam(szam);
+            ElementBase<T>* eb=(new Operator<T>('('));
+            temp.push(Element<T>(eb));
+            
+        } 
+
+        // )
+        else if(infix[i] == ')') 
+        { 
+            pushszam(szam);
+            ElementBase<T>* closeb=(new Operator<T>('('));
+            Element<T> close=(Element<T>(closeb));
+            ElementBase<T>* openb=(new Operator<T>(')'));
+            Element<T> open=(Element<T>(openb));
+            while(!temp.isEmpty() && temp.top()->gettype() != '(') 
+            { 
+                Element<T> e= temp.top(); 
+                if (!(temp.isEmpty()) ) temp.pop(); 
+                postfix.push(e); 
+            } 
+            if( !(temp.isEmpty()) && (temp.top()->gettype() == '(')) 
+            { 
+                //char c = st.top(); 
+                temp.pop(); 
+            } 
+        }
+        else if(infix[i]==' ')  pushszam(szam);
+        //ha szamok
+        else{
+            szam+=infix[i];
+
+        }
+          
+        
+    }
+    pushszam(szam);
+    
+    while(!temp.isEmpty()){
+        postfix.push(temp.top());
+        temp.pop();
+    }
+}
+template <typename T>
+void Expression<T>::pushszam(std::string& szam){
+    if(szam!=""){
+        postfix.push(valuetoelement(stringtonum(szam)));szam="";
+    }
+    
+}
+
+template <typename T>
+Element<T> Expression<T>::valuetoelement(T value)const{
+    ElementBase<T>* eb=(new Operand<T>(value));
+    return Element<T>(eb);
 }
 
 template <typename T>
 Expression<T>::Expression(T value){
-    ElementBase<T>* eb=(new Operand<T>(value));
-    postfix.push(Element<T>(eb));
+    
+    postfix.push(valuetoelement(value));
 }
 
 template <typename T>
@@ -53,7 +145,7 @@ std::string Expression<T>::getPostfix()const{
     std::string s;
     Stack<Element<T>> forditott=postfix.megfordit();
     for(size_t i=0;i<postfix.getactual();++i){
-        std::string sn=postfix.top()->operator std::string();
+        std::string sn=forditott.top()->operator std::string();
         s+=sn;
         forditott.pop();
     }

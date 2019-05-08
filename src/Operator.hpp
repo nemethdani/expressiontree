@@ -19,7 +19,7 @@ public:
     ElementBase<T>* copy()const{return new Operator<T>(*this);};
     /// Operator-e?
     /// @return - igen.
-    bool isOperator(){return true;};
+    bool isOperator()const{return true;};
 
     /// Vegrehajtja a beallitott muveletet a ket parameterre
     /// @param lhs - bal oldali operandus
@@ -31,10 +31,21 @@ public:
             case '*': return lhs*rhs;
             case '/': return lhs/rhs;
         }
+        return T();
     };
 
     operator std::string()const{return std::string(1,type);};
-    operator std::string&(){return std::string(1,type);};
+    
+    int precedence()const{
+        if(type == '*' || type == '/') return 2; 
+        
+        else if (type == '+' || type == '-') return 1;
+        else return -1;
+        
+    }
+
+    
+    char gettype()const{return type;}
 
 };
 

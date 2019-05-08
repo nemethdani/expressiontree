@@ -40,6 +40,15 @@ void expressiontest(){
     // std::cout<<e0.getInfix();
     std::cout<<e1.getPostfix()<<std::endl;
     std::cout<<e2.getPostfix()<<std::endl;
+    std::string infix="1+2*(3*4-5)*(6+7*8)-9";
+    std::cout<<"infix: "<<infix<<std::endl;
+    std::cout<<"postfix elvart: 1234*5-*678*+*+9-"<<std::endl;
+    Expression<int> ep(infix);
+    std::cout<<ep.getPostfix()<<std::endl;
+
+
+    // szam stringet szamma
+    
     // std::cout<<e0.getPrefix();
     // Expression<int> estring("5+3*6");
     // estring*=2;

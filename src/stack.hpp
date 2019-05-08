@@ -13,9 +13,7 @@ class Stack{
     
 
 
-    /// Ures-e?
-    /// @return - true, ha üres, egyébként false
-    bool isEmpty()const{return actual==0;}
+ 
 
     /// Atmeretezes
     /// @param newsize - a kívánt új méret
@@ -91,6 +89,7 @@ class Stack{
     void push(const T& val){
         if(actual==size) resize(size*2);
         data[actual]=val;
+        
         actual++;
     }
 
@@ -108,6 +107,10 @@ class Stack{
         }
         return forditott;
     }
+
+    /// Ures-e?
+    /// @return - true, ha üres, egyébként false
+    bool isEmpty()const{return actual==0;}
 
         
 

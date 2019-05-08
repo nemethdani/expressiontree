@@ -19,7 +19,9 @@ public:
     virtual  T Operation(T lhs, T rhs) {return T();};
     virtual T getval()const {return T();};
     virtual operator std::string()const=0;
-    //virtual operator std::string&()=0;
+    virtual int precedence()const{return -1;};
+    
+    virtual char gettype()const{return 0;};
 
 };
 

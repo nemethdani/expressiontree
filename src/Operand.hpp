@@ -23,8 +23,9 @@ public:
     /// @return operandus erteke
     T getval()const{ return value;};
 
-    //operator std::string&(){return std::to_string(value);};
+    
     operator std::string()const {return std::to_string(value);};
+    int precedence()const {return -1;}
    
 
 };
