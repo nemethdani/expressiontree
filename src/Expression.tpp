@@ -1,6 +1,7 @@
 //#include "Expression.hpp"
 
 #include <sstream>
+#include "stringconversion.hpp"
 
 
 
@@ -13,8 +14,7 @@ T Expression<T>::stringtonum(const std::string& s)const{
     return x;
 }
 
-/// Infix stringből készít kifejezést
-/// @param infix - Infix formátumban megadott string, lehet benne zárójel és space
+
 template <typename T>
 Expression<T>::Expression(std::string infix){
     std::string szam="";
@@ -80,7 +80,7 @@ Expression<T>::Expression(std::string infix){
         
     }
     pushszam(szam);
-    
+
     while(!temp.isEmpty()){
         postfix.push(temp.top());
         temp.pop();
@@ -134,12 +134,14 @@ T Expression<T>::eval()const{
 
 // /// infix formátumba konvertálás
 // /// @return - String, infix formában
-// template <typename T>
-// std::string Expression<T>::getInfix()const{}
+template <typename T>
+std::string Expression<T>::getInfix()const{
+    std::string pfx=getPostfix();
+    return getInfixstr(pfx);
+}
 
 
-/// postfix formátumba konvertálás
-/// @return - String, postfix formában
+
 template <typename T>
 std::string Expression<T>::getPostfix()const{
     std::string s;
@@ -147,6 +149,7 @@ std::string Expression<T>::getPostfix()const{
     for(size_t i=0;i<postfix.getactual();++i){
         std::string sn=forditott.top()->operator std::string();
         s+=sn;
+        if(i!=postfix.getactual()-1) s+=" ";
         forditott.pop();
     }
     return s;

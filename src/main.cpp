@@ -6,6 +6,7 @@
 #include "Expression.hpp"
 #include "Operand.hpp"
 #include "Operator.hpp"
+#include "stringconversion.hpp"
 
 
 
@@ -37,14 +38,26 @@ void expressiontest(){
     //Expression<int> e0=e1+e2;
     std::cout<<"e1: "<<e1.eval()<<std::endl;
     std::cout<<"e2: "<<e2.eval()<<std::endl;
-    // std::cout<<e0.getInfix();
+    std::cout<<e1.getInfix();
     std::cout<<e1.getPostfix()<<std::endl;
     std::cout<<e2.getPostfix()<<std::endl;
     std::string infix="1+2*(3*4-5)*(6+7*8)-9";
     std::cout<<"infix: "<<infix<<std::endl;
     std::cout<<"postfix elvart: 1234*5-*678*+*+9-"<<std::endl;
     Expression<int> ep(infix);
+    std::cout<<ep.getInfix()<<std::endl;
     std::cout<<ep.getPostfix()<<std::endl;
+}
+
+void stringconvert(){
+    std::string pfx = "1 2 * 3 +"; 
+    std::cout<<"pfx: "<<pfx<<std::endl;
+    std::cout<<"infix:         "<<getInfixstr(pfx)<<std::endl;
+    std::string postfix="1 2 3 4 * 5 - * 6 7 8 * + * + 9 -";
+    std::cout<<"postfix: 1 2 3 4 * 5 - * 6 7 8 * + * + 9 -"<<std::endl;
+    std::cout<<"infix elvart: 1+2*(3*4-5)*(6+7*8)-9"<<std::endl;
+    std::cout<<"infix:         "<<getInfixstr(postfix)<<std::endl;
+}
 
 
     // szam stringet szamma
@@ -56,12 +69,13 @@ void expressiontest(){
 
 
 
-}
+
 
 int main() {
     try{
         stacktest();
         expressiontest();
+        stringconvert();
     }
     catch (std::exception& e) {
         std::cerr << e.what() << std::endl;
