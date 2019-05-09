@@ -69,6 +69,14 @@ void stringconvert(){
     std::cout<<"postfix: 1 2 3 4 * 5 - * 6 7 8 * + * + 9 -"<<std::endl;
     std::cout<<"infix elvart: 1+2*(3*4-5)*(6+7*8)-9"<<std::endl;
     std::cout<<"infix:         "<<getInfixstr(postfix)<<std::endl;
+
+    std::string post_exp = "1 2 3 / - 1 4 / 5 - *";
+    std::cout<<"postfix: "<<post_exp<<std::endl;
+    std::cout<<postToPre(post_exp)<<std::endl;
+    std::cout<<"elvart: *-1/23-/145"<<std::endl;
+
+
+    
 }
 
 
@@ -87,8 +95,8 @@ int main() {
     try{
         //stacktest();
         //expressiontest();
-        //stringconvert();
-        eval();
+        stringconvert();
+        //eval();
     }
     catch (std::exception& e) {
         std::cerr << e.what() << std::endl;

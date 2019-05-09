@@ -157,8 +157,11 @@ std::string Expression<T>::getPostfix()const{
 
 // /// prefix formátumba konvertálás
 // /// @return - String, prefix formában
-// template <typename T>
-// std::string Expression<T>::getPrefix()const{}
+template <typename T>
+std::string Expression<T>::getPrefix()const{
+    std::string pfx=getPostfix();
+    return getPrefix(pfx);
+}
 
 
 // /// Kétkifejezést összead

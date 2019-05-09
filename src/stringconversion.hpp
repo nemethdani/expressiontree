@@ -20,7 +20,7 @@ std::string getInfixstr(std::string exp)
 { 
     Stack<std::string> s;
     std::string element="";
-    std::string temp="";
+    //std::string temp="";
     std::stringstream ss(exp);
 
   
@@ -52,6 +52,50 @@ std::string getInfixstr(std::string exp)
     // There must be a single element 
     // in stack now which is the required 
     // infix. 
+    return s.top(); 
+} 
+
+std::string postToPre(std::string post_exp) 
+{ 
+    Stack<std::string> s; 
+  
+    // length of expression 
+     
+
+    std::string element="";
+    //std::string temp="";
+    std::stringstream ss(post_exp);
+
+  
+    while(ss>>element)
+    {
+        // check if symbol is operator 
+        if (isOperator(element)) { 
+  
+            // pop two operands from stack 
+            std::string op1 = s.top(); 
+            s.pop(); 
+            std::string op2 = s.top(); 
+            s.pop(); 
+  
+            // concat the operands and operator 
+            std::string temp = element + op2 + op1; 
+  
+            // Push string temp back to stack 
+            s.push(temp); 
+        } 
+  
+        // if symbol is an operand 
+        else { 
+  
+            // push the operand to the stack 
+            s.push(element); 
+        } 
+    }
+  
+    
+  
+    // stack[0] contains the Prefix expression 
     return s.top(); 
 } 
 
