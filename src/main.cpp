@@ -35,9 +35,6 @@ void stacktest(){
 void expressiontest(){
     
     Expression<int> e1(1), e2(2);
-    //Expression<int> e0=e1+e2;
-    std::cout<<"e1: "<<e1.eval()<<std::endl;
-    std::cout<<"e2: "<<e2.eval()<<std::endl;
     std::cout<<e1.getInfix();
     std::cout<<e1.getPostfix()<<std::endl;
     std::cout<<e2.getPostfix()<<std::endl;
@@ -47,6 +44,21 @@ void expressiontest(){
     Expression<int> ep(infix);
     std::cout<<ep.getInfix()<<std::endl;
     std::cout<<ep.getPostfix()<<std::endl;
+    Expression<double> ep2("1.54+2.1*(3.4*4-5)*(6.8+7.9*8.4)-9");
+    std::cout<<ep2.getInfix()<<std::endl;
+    std::cout<<ep2.getPostfix()<<std::endl;
+}
+
+void eval(){
+    Expression<int> e1(1), e2(2);
+    std::cout<<"e1: "<<e1.eval()<<std::endl;
+    std::cout<<"e2: "<<e2.eval()<<std::endl;
+    Expression<int> ep("1+2*(3*4-5)*(6+7*8)-9");
+    std::cout<<"eval: "<<ep.eval()<<std::endl;
+    std::cout<<"elvart: "<<1+2*(3*4-5)*(6+7*8)-9;
+    Expression<double> ep2("1.54+2.1*(3.4*4-5)*(6.8+7.9*8.4)-9");
+    std::cout<<"eval: "<<ep2.eval()<<std::endl;
+    std::cout<<"elvart: "<<1.54+2.1*(3.4*4-5)*(6.8+7.9*8.4)-9;
 }
 
 void stringconvert(){
@@ -73,9 +85,10 @@ void stringconvert(){
 
 int main() {
     try{
-        stacktest();
-        expressiontest();
-        stringconvert();
+        //stacktest();
+        //expressiontest();
+        //stringconvert();
+        eval();
     }
     catch (std::exception& e) {
         std::cerr << e.what() << std::endl;

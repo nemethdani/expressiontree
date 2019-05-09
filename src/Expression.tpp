@@ -119,7 +119,7 @@ T Expression<T>::eval()const{
         else{
             T val1 = munka.top()->getval();munka.pop();  
             T val2 = munka.top()->getval();munka.pop();
-            T val=forditott.top()->Operation(val1, val2);
+            T val=forditott.top()->Operation(val2, val1);
             ElementBase<T>* operand=(new Operand<T>(val));
             munka.push(Element<T>(operand));
         }
@@ -132,8 +132,7 @@ T Expression<T>::eval()const{
    
 }
 
-// /// infix formátumba konvertálás
-// /// @return - String, infix formában
+
 template <typename T>
 std::string Expression<T>::getInfix()const{
     std::string pfx=getPostfix();
