@@ -138,6 +138,7 @@ void grandinfix(){
     bool ok=true;
 
     while(expcode>>idx){
+        std::getline(expcode,infix);
         Expression<int> e(infix);
         std::string if2=e.getInfix();
         Expression<int> e2(if2);
