@@ -178,7 +178,7 @@ void Expression<T>::hozzafuz(const Expression<T>& rhs, const char op){
 template <typename T>
 std::string Expression<T>::getPrefix()const{
     std::string pfx=getPostfix();
-    return getPrefix(pfx);
+    return postToPre(pfx);
 }
 
 

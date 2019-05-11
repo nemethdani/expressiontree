@@ -14,7 +14,7 @@
 
 
 void stacktest(){
-    //ures stack,10es stack
+    std::cout<<"Stack kezelés"<<std::endl;
     Stack<int> s0, snull, s10(10);
     s0.push(0);
     s0.push(1);
@@ -32,35 +32,39 @@ void stacktest(){
     s10.pop();
     // snull.top();
     // snull.pop();
+    std::cout<<std::endl;
 }
 
 void expressiontest(){
     
     Expression<int> e1(1), e2(2);
-    std::cout<<e1.getInfix();
-    std::cout<<e1.getPostfix()<<std::endl;
-    std::cout<<e2.getPostfix()<<std::endl;
+    std::cout<<"e1 infix: "<<e1.getInfix() << std::endl;
+    std::cout<<"e1 postfix: "<<e1.getPostfix()<<std::endl;
+    std::cout<<"e2 postfix: "<<e2.getPostfix()<<std::endl;
     std::string infix="1 + 2 * ( 3 * 4 - 5 ) * ( 6 + 7 * 8 ) - 9";
     std::cout<<"infix: "<<infix<<std::endl;
-    std::cout<<"postfix elvart: 1234*5-*678*+*+9-"<<std::endl;
+    
     Expression<int> ep(infix);
-    std::cout<<ep.getInfix()<<std::endl;
+    std::cout<<"infix: "<<ep.getInfix()<<std::endl;
+    std::cout<<"postfix elvart: 1234*5-*678*+*+9-"<<std::endl;
     std::cout<<ep.getPostfix()<<std::endl;
     Expression<double> ep2("1.54 + 2.1 * ( 3.4 * 4 - 5 ) * ( 6.8 + 7.9 * 8.4 ) - 9");
+    std::cout<<"double expr infix: "<<"1.54 + 2.1 * ( 3.4 * 4 - 5 ) * ( 6.8 + 7.9 * 8.4 ) - 9"<<std::endl;
     std::cout<<ep2.getInfix()<<std::endl;
     std::cout<<ep2.getPostfix()<<std::endl;
+    std::cout<<"prefix: "<<ep2.getPrefix()<<std::endl;
 }
 
 void eval(){
     Expression<int> e1(1), e2(2);
     std::cout<<"e1: "<<e1.eval()<<std::endl;
     std::cout<<"e2: "<<e2.eval()<<std::endl;
-    Expression<int> ep("1+2*(3*4-5)*(6+7*8)-9");
+    Expression<int> ep("1 + 2 * ( 3 * 4 - 5 ) * ( 6 + 7 * 8 ) - 9");
     std::cout<<"eval: "<<ep.eval()<<std::endl;
-    std::cout<<"elvart: "<<1+2*(3*4-5)*(6+7*8)-9;
-    Expression<double> ep2("1.54+2.1*(3.4*4-5)*(6.8+7.9*8.4)-9");
+    std::cout<<"elvart: "<<1+2*(3*4-5)*(6+7*8)-9<<std::endl;
+    Expression<double> ep2("1.54 + 2.1 * ( 3.4 * 4 - 5 ) * ( 6.8 + 7.9 * 8.4 ) - 9");
     std::cout<<"eval: "<<ep2.eval()<<std::endl;
-    std::cout<<"elvart: "<<1.54+2.1*(3.4*4-5)*(6.8+7.9*8.4)-9;
+    std::cout<<"elvart: "<<1.54+2.1*(3.4*4-5)*(6.8+7.9*8.4)-9<<std::endl;
 }
 
 void stringconvert(){
@@ -80,12 +84,14 @@ void stringconvert(){
 
 void negativ(){
     Expression<int> e1("5 * ( -1 ) ");
-    std::cout<<e1.eval();
+    std::cout<<e1.eval()<<std::endl;
+    std::cout<<"elvart: " << 5 * ( -1 )<<std::endl;
 }
 
 void muveletek(){
-    Expression<int>e1("1*4-6"); //-2
-    Expression<int>e2("40/5-7"); //1
+    Expression<int>e1("1 * 4 - 6"); //-2
+    
+    Expression<int>e2("40 / 5 - 7"); //1
     e1+=e2; //-1
     std::cout<<e1.eval()<<std::endl;
     Expression<int>e3=e1+e2; //0
@@ -103,6 +109,7 @@ void grandeval(){
     int val;
     int idx;
     std::string infix;
+    bool ok=true;
 
     while(values>>val && expcode>>idx){
         std::getline(expcode,infix);
@@ -110,8 +117,15 @@ void grandeval(){
         int evl=e.eval();
         if(evl!=val){
             std::cout<<"hiba: "<<idx<<" elvart: "<<val<<" kapott: "<<evl<<std::endl;
+            ok=false;
+
         }
     }
+     if(ok) {
+        std::cout<< "Minden OK, minden az oroszOKé"<<std::endl;
+
+    }
+    else std::cout<<"Baj volt"<<std::endl;
 }
 
 void grandinfix(){
@@ -120,17 +134,25 @@ void grandinfix(){
     int idx;
     std::string infix;
     //std::vector<Expression<int>> ev;
+    bool ok=true;
 
     while(expcode>>idx){
         Expression<int> e(infix);
         std::string if2=e.getInfix();
         Expression<int> e2(if2);
         std::string if3=e2.getInfix();
+        
         if(if2!=if3){
             std::cout<<"Hiba "<<idx<<": "<<"Elvart: "<<if2<<" kapott: "<< if3<<std::endl;
+            ok=false;
         }
 
     }
+    if(ok) {
+        std::cout<< "Minden OK, minden az oroszOKé"<<std::endl;
+
+    }
+    else std::cout<<"Baj volt"<<std::endl;
 }
     
 
@@ -139,19 +161,48 @@ void grandinfix(){
 
 
 int main() {
-    try{
-        //stacktest();
-        //expressiontest();
-        //stringconvert();
-        //eval();
-        //negativ();
-        //muveletek();
-        //grandeval();
-        //grandinfix();
+    int nr;
+    while (std::cin >> nr && nr > 0) {
+        try{
+            switch(nr){
+                case 1:
+                    stacktest();
+                    break;
+                case 2:
+                    expressiontest();
+                    break;
+                case 3:
+                    stringconvert();
+                    break;
+                case 4:
+                    eval();
+                    break;
+                case 5:
+                    grandeval();
+                    break;
+                case 6:
+                    negativ();
+                    break;
+                case 7:
+                    muveletek();
+                    break;
+                case 8:
+                    grandinfix();
+                    break;
+                default:
+                    std::cout<<"tesztek: 1-8, kilepes:0"<<std::endl;
+
+            }
+                
+        }
+        catch (std::exception& e) {
+            std::cerr << e.what() << std::endl;
+        }
+
     }
-    catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
-    }
+
+
+    
 
     
 }
