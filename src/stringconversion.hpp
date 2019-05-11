@@ -59,11 +59,11 @@ std::string postToPre(std::string post_exp)
 { 
     Stack<std::string> s; 
   
-    // length of expression 
+
      
 
     std::string element="";
-    //std::string temp="";
+
     std::stringstream ss(post_exp);
 
   

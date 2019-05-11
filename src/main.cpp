@@ -38,13 +38,13 @@ void expressiontest(){
     std::cout<<e1.getInfix();
     std::cout<<e1.getPostfix()<<std::endl;
     std::cout<<e2.getPostfix()<<std::endl;
-    std::string infix="1+2*(3*4-5)*(6+7*8)-9";
+    std::string infix="1 + 2 * ( 3 * 4 - 5 ) * ( 6 + 7 * 8 ) - 9";
     std::cout<<"infix: "<<infix<<std::endl;
     std::cout<<"postfix elvart: 1234*5-*678*+*+9-"<<std::endl;
     Expression<int> ep(infix);
     std::cout<<ep.getInfix()<<std::endl;
     std::cout<<ep.getPostfix()<<std::endl;
-    Expression<double> ep2("1.54+2.1*(3.4*4-5)*(6.8+7.9*8.4)-9");
+    Expression<double> ep2("1.54 + 2.1 * ( 3.4 * 4 - 5 ) * ( 6.8 + 7.9 * 8.4 ) - 9");
     std::cout<<ep2.getInfix()<<std::endl;
     std::cout<<ep2.getPostfix()<<std::endl;
 }
@@ -77,7 +77,7 @@ void stringconvert(){
 }
 
 void negativ(){
-    Expression<int> e1("5*(-1)");
+    Expression<int> e1("5 * ( -1 ) ");
     std::cout<<e1.eval();
 }
 
@@ -111,7 +111,7 @@ int main() {
         //stringconvert();
         //eval();
         //negativ();
-        muveletek();
+        //muveletek();
     }
     catch (std::exception& e) {
         std::cerr << e.what() << std::endl;

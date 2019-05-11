@@ -14,10 +14,10 @@ class Expression{
     /// precedenciat ad vissza operatorokhoz
     /// @param c - operator karaktere
     /// @return - */: 2, +-:1, egyebkent -1
-    int precedence(char c){
-        if(c == '*' || c == '/') 
+    int precedence(std::string c){
+        if(c == "*" || c == "/") 
         return 2; 
-        else if(c == '+' || c == '-') 
+        else if(c == "+" || c == "-") 
         return 1; 
         else
         return -1; 
@@ -25,7 +25,7 @@ class Expression{
 
     /// a kapott karakter operator-e
     /// @return true, ha operator, egyebken false
-    bool isoperatorchar(char c){return (precedence(c)==1 || precedence(c)==2);};
+    bool isoperatorchar(std::string c){return (precedence(c)==1 || precedence(c)==2);};
 
     /// Szamjegyekbol allo stringbol keszit szamot
     /// @param szamjegyeket es esetleg pontot(tizedesjegy) tartalmazo string

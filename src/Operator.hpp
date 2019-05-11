@@ -8,11 +8,12 @@
 /// @param T - adattpus
 template <typename T>
 class Operator : public ElementBase<T>{
-    char type;
+    std::string type;
 public:
     /// Operator konstruktor
     /// @param c - operatort jelkepezo char tipusu karakter
-    Operator(char c):type(c){};
+    Operator(char c):type(std::string(1, c)){};
+    Operator(std::string c):type(c){};
 
     /// Operator masolo
     /// @return - masolatra mutato Elementbase* tipusu pointer
@@ -25,7 +26,7 @@ public:
     /// @param lhs - bal oldali operandus
     /// @param rhs - jobb oldali operandus
     T Operation(T lhs, T rhs){
-        switch(type){
+        switch(type[0]){
             case '+': return lhs+rhs;
             case '-': return lhs-rhs;
             case '*': return lhs*rhs;
@@ -34,18 +35,18 @@ public:
         return T();
     };
 
-    operator std::string()const{return std::string(1,type);};
+    operator std::string()const{return type;};
     
     int precedence()const{
-        if(type == '*' || type == '/') return 2; 
+        if(type == "*" || type == "/") return 2; 
         
-        else if (type == '+' || type == '-') return 1;
+        else if (type == "+" || type == "-") return 1;
         else return -1;
         
     }
 
     
-    char gettype()const{return type;}
+    char gettype()const{return type[0];}
 
 };
 

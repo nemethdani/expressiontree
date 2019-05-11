@@ -21,14 +21,22 @@ Expression<T>::Expression(std::string infix){
     //T val;
     Stack<Element<T>> temp;
     //temp.push('N')
-    size_t len=infix.size();
-    for(size_t i=0;i<len;++i){
+    //size_t len=infix.size();
+
+
+    std::string element="";
+
+    std::stringstream ss(infix);
+
+  
+    
+    while(ss>>element){
 
         //operator
-        if(isoperatorchar(infix[i])){
-            ElementBase<T>* eb=(new Operator<T>(infix[i]));
+        if(isoperatorchar(element)){
+            ElementBase<T>* eb=(new Operator<T>(element));
             Element<T> e(eb);
-            pushszam(szam);
+            
             while(!temp.isEmpty() && e->precedence() <= temp.top()->precedence()) 
             { 
                 Element<T> e = temp.top(); 
@@ -43,17 +51,17 @@ Expression<T>::Expression(std::string infix){
 
         // (
             
-        else if(infix[i] == '('){
-            pushszam(szam);
+        else if(element == "("){
+            
             ElementBase<T>* eb=(new Operator<T>('('));
             temp.push(Element<T>(eb));
             
         } 
 
         // )
-        else if(infix[i] == ')') 
+        else if(element == ")") 
         { 
-            pushszam(szam);
+            ;
             ElementBase<T>* closeb=(new Operator<T>('('));
             Element<T> close=(Element<T>(closeb));
             ElementBase<T>* openb=(new Operator<T>(')'));
@@ -70,10 +78,10 @@ Expression<T>::Expression(std::string infix){
                 temp.pop(); 
             } 
         }
-        else if(infix[i]==' ')  pushszam(szam);
+        else if(element==" ")  pushszam(szam);
         //ha szamok
         else{
-            szam+=infix[i];
+            pushszam(element);
 
         }
           
@@ -177,8 +185,6 @@ std::string Expression<T>::getPrefix()const{
 
 template <typename T>
 Expression<T> Expression<T>::operator+(const Expression& e){
-    // Expression<T> masolat=(*this);
-    // masolat+=e;
     return Expression<T>(*this)+=e;
 }
 
