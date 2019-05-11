@@ -73,10 +73,20 @@ void stringconvert(){
     std::string post_exp = "1 2 3 / - 1 4 / 5 - *";
     std::cout<<"postfix: "<<post_exp<<std::endl;
     std::cout<<postToPre(post_exp)<<std::endl;
-    std::cout<<"elvart: *-1/23-/145"<<std::endl;
+    std::cout<<"elvart: *-1/23-/145"<<std::endl; 
+}
 
+void negativ(){
+    Expression<int> e1("5*(-1)");
+    std::cout<<e1.eval();
+}
 
-    
+void muveletek(){
+    Expression<int>e1("1*4-6"); //-2
+    Expression<int>e2("40/5-7"); //1
+    e1+=e2; //-1
+    std::cout<<e1.eval()<<std::endl;
+
 }
 
 
@@ -95,8 +105,10 @@ int main() {
     try{
         //stacktest();
         //expressiontest();
-        stringconvert();
+        //stringconvert();
         //eval();
+        //negativ();
+        muveletek();
     }
     catch (std::exception& e) {
         std::cerr << e.what() << std::endl;

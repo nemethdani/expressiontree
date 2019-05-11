@@ -33,6 +33,7 @@ class Expression{
     T stringtonum(const std::string& s)const;
     Element<T> valuetoelement(T value)const;
     void pushszam(std::string& szam);
+    void hozzafuz(const Expression<T>& rhs, const char op);
 
 public:
 

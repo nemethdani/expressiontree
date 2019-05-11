@@ -154,9 +154,19 @@ std::string Expression<T>::getPostfix()const{
     return s;
 }
 
+template<typename T>
+void Expression<T>::hozzafuz(const Expression<T>& rhs, const char op){
+    Stack<Element<T>> forditott=rhs.postfix.megfordit();
+    while(!(forditott.isEmpty())){
+        postfix.push(forditott.top());
+        forditott.pop();
+    }
+    ElementBase<T>* eb=(new Operator<T>(op));
+    Element<T> e(eb);
+    postfix.push(e);
+}
 
-// /// prefix formátumba konvertálás
-// /// @return - String, prefix formában
+
 template <typename T>
 std::string Expression<T>::getPrefix()const{
     std::string pfx=getPostfix();
@@ -168,10 +178,15 @@ std::string Expression<T>::getPrefix()const{
 // /// @return - kifejezések összege
 // template <typename T>
 // Expression<T> Expression<T>::operator+(const Expression& e){}
+
 // /// Kétkifejezést összead helyben
 // /// @return - kifejezések összege helyben
-// template <typename T>
-// Expression<T>& Expression<T>::operator+=(const Expression& e){}
+template <typename T>
+Expression<T>& Expression<T>::operator+=(const Expression& e){
+    hozzafuz(e,'+');
+    return (*this);
+}
+
 // /// Kétkifejezést kivon
 // /// @return - kifejezések kulonbsege
 // template <typename T>
