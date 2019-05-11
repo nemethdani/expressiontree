@@ -78,7 +78,7 @@ Expression<T>::Expression(std::string infix){
                 temp.pop(); 
             } 
         }
-        else if(element==" ")  pushszam(szam);
+        //else if(element==" ")  pushszam(szam);
         //ha szamok
         else{
             pushszam(element);
@@ -87,7 +87,7 @@ Expression<T>::Expression(std::string infix){
           
         
     }
-    pushszam(szam);
+    //pushszam(szam);
 
     while(!temp.isEmpty()){
         postfix.push(temp.top());

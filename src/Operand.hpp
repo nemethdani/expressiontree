@@ -23,8 +23,10 @@ public:
     /// @return operandus erteke
     T getval()const{ return value;};
 
-    
+    /// Stringge alakitja az operandus erteket
+    /// @retrun string alakban az operandus
     operator std::string()const {return std::to_string(value);};
+    /// @retrun - az operandus precedenciaja mindig -1
     int precedence()const {return -1;}
    
 

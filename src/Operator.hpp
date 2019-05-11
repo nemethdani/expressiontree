@@ -35,8 +35,10 @@ public:
         return T();
     };
 
+    /// Stringge konvertalja az operatort
     operator std::string()const{return type;};
-    
+    /// Az operatorok precedenciajat szamitja
+    /// @return - */ 2, +- 1, egyebkent -1
     int precedence()const{
         if(type == "*" || type == "/") return 2; 
         
@@ -45,7 +47,8 @@ public:
         
     }
 
-    
+    /// Karakterkent visszaadja az operatort
+    /// @return - operator karakterkent
     char gettype()const{return type[0];}
 
 };

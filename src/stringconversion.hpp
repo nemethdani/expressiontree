@@ -5,17 +5,27 @@
 #include "stack.hpp"
 #include <sstream>
 
+///Eldonti, hogy a kapott string operator-e
+/// @param c - string
+/// @return - True, ha operator
 bool isOperator(const std::string& c){
     return (c=="+" || c=="-" || c=="*" || c=="/");
 
 }
-
+/// Eldonti, hogy a kapott string operandus-e
+/// @param s - string
+/// @return - True ha operandus
 bool isOperand(const std::string& s){return !isOperator(s);}
+/// Beteszi a stringeket tartalmazo stackbe az operandust
+/// @param operand - egy karakteru string, az operandus
+/// @param s - stringeket tartalmazo stack
 void pushoperand(std::string& operand, Stack<std::string>& s){
     if(operand!="") s.push(operand);
     operand="";
 }
-
+/// Postfix stringbol infix stringet ad vissza
+/// @param exp - Postfix string minden elem space-el elvalasztva
+/// @return - infix formatumu string
 std::string getInfixstr(std::string exp) 
 { 
     Stack<std::string> s;
@@ -54,7 +64,9 @@ std::string getInfixstr(std::string exp)
     // infix. 
     return s.top(); 
 } 
-
+/// Prefix stringge alakitja a postfix stringet
+/// @param post_exp postfix tipusu string
+/// @return - prefix formatumu string
 std::string postToPre(std::string post_exp) 
 { 
     Stack<std::string> s; 

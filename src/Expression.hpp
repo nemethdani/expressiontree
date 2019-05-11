@@ -5,6 +5,7 @@
 #include "Operand.hpp"
 #include "Element.hpp"
 #include "Operator.hpp"
+#include "stringconversion.hpp"
 
 /// Kifejezések osztálya
 /// @param T - adattípus
@@ -25,14 +26,22 @@ class Expression{
 
     /// a kapott karakter operator-e
     /// @return true, ha operator, egyebken false
-    bool isoperatorchar(std::string c){return (precedence(c)==1 || precedence(c)==2);};
+    bool isoperatorchar(std::string c){return isOperator(c);};
 
     /// Szamjegyekbol allo stringbol keszit szamot
     /// @param szamjegyeket es esetleg pontot(tizedesjegy) tartalmazo string
     /// @return T tipusu szam
     T stringtonum(const std::string& s)const;
+    /// Adott értékből absztrak elemet (operandus) hoz létre
+    /// @param value - az érték, amit át szeretnénk konvertálni
+    /// @return - absztrakt elem
     Element<T> valuetoelement(T value)const;
+    /// beteszi a stringként megkapott számot a postfix absztrak kollekcióba
+    /// @param szam - stringkent megadott, lehet negatis es tizedes ponttal elvalasztott is pl: -4.56
     void pushszam(std::string& szam);
+    /// A jelenlegi kefejezeshez hozzafuz egy masikat, megadott operandussal, += -= ... muveletekhez
+    /// @param rhs - ezt a kifejezést egyesitjuk a meglevovel
+    /// @param op - a kivant operandus (+ - * /)
     void hozzafuz(const Expression<T>& rhs, const char op);
 
 public:
