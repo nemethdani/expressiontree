@@ -9,6 +9,7 @@
 #include "stringconversion.hpp"
 #include <fstream>
 #include <vector>
+#include "memtrace.h"
 
 
 
