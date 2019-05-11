@@ -34,7 +34,8 @@
         "tuple": "cpp",
         "typeinfo": "cpp",
         "utility": "cpp",
-        "string_view": "cpp"
+        "string_view": "cpp",
+        "optional": "cpp"
     },
     "terminal.integrated.shell.windows": "cmd.exe"
 }

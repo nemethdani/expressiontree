@@ -7,6 +7,8 @@
 #include "Operand.hpp"
 #include "Operator.hpp"
 #include "stringconversion.hpp"
+#include <fstream>
+#include <vector>
 
 
 
@@ -93,11 +95,43 @@ void muveletek(){
 }
 
 
-    // szam stringet szamma
-    
-    // std::cout<<e0.getPrefix();
-    // Expression<int> estring("5+3*6");
-    // estring*=2;
+void grandeval(){
+    std::ifstream values;
+    values.open ("values.txt");
+    std::ifstream expcode;
+    expcode.open ("expcode.txt");
+    int val;
+    int idx;
+    std::string infix;
+
+    while(values>>val && expcode>>idx){
+        std::getline(expcode,infix);
+        Expression<int> e(infix);
+        int evl=e.eval();
+        if(evl!=val){
+            std::cout<<"hiba: "<<idx<<" elvart: "<<val<<" kapott: "<<evl<<std::endl;
+        }
+    }
+}
+
+void grandinfix(){
+    std::ifstream expcode;
+    expcode.open ("expcode.txt");
+    int idx;
+    std::string infix;
+    //std::vector<Expression<int>> ev;
+
+    while(expcode>>idx){
+        Expression<int> e(infix);
+        std::string if2=e.getInfix();
+        Expression<int> e2(if2);
+        std::string if3=e2.getInfix();
+        if(if2!=if3){
+            std::cout<<"Hiba "<<idx<<": "<<"Elvart: "<<if2<<" kapott: "<< if3<<std::endl;
+        }
+
+    }
+}
     
 
 
@@ -107,11 +141,13 @@ void muveletek(){
 int main() {
     try{
         //stacktest();
-        expressiontest();
-        stringconvert();
+        //expressiontest();
+        //stringconvert();
         //eval();
         //negativ();
         //muveletek();
+        //grandeval();
+        //grandinfix();
     }
     catch (std::exception& e) {
         std::cerr << e.what() << std::endl;
