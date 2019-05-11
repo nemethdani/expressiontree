@@ -40,4 +40,7 @@ main
 # VScode
 *.bin
 
+# Compressed
+*.zip
+
 # End of https://www.gitignore.io/api/c++

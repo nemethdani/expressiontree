@@ -162,6 +162,9 @@ void grandinfix(){
 
 
 int main() {
+    
+    
+
     int nr;
     while (std::cin >> nr && nr > 0) {
         try{

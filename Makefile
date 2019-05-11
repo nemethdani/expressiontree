@@ -1,5 +1,5 @@
 CXX		  := g++
-CXX_FLAGS := -Wall -Werror -pedantic -std=c++11 -g -ggdb
+CXX_FLAGS := -Wall -Werror -O0 -std=c++11 -g -ggdb
 
 BIN		:= bin
 SRC		:= src
