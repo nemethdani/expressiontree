@@ -106,12 +106,12 @@ void muveletek(){
 
 int main() {
     try{
-        stacktest();
+        //stacktest();
         expressiontest();
         stringconvert();
-        eval();
-        negativ();
-        muveletek();
+        //eval();
+        //negativ();
+        //muveletek();
     }
     catch (std::exception& e) {
         std::cerr << e.what() << std::endl;

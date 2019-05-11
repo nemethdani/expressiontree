@@ -53,8 +53,10 @@ std::string getInfixstr(std::string exp)
             s.pop(); 
             std::string op2 = s.top(); 
             s.pop(); 
-            s.push("(" + op2 + element + 
-                   op1 + ")"); 
+            std::string sp=" ";
+            std::string temp="(" + sp + sp + op2 + sp + element  + sp +
+                   op1 + sp + ")";
+            s.push(temp); 
         } 
     }
     
@@ -91,7 +93,7 @@ std::string postToPre(std::string post_exp)
             s.pop(); 
   
             // concat the operands and operator 
-            std::string temp = element + op2 + op1; 
+            std::string temp = element + " "+ op2+" " + op1; 
   
             // Push string temp back to stack 
             s.push(temp); 
