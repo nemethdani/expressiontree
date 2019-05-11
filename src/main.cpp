@@ -86,6 +86,9 @@ void muveletek(){
     Expression<int>e2("40/5-7"); //1
     e1+=e2; //-1
     std::cout<<e1.eval()<<std::endl;
+    Expression<int>e3=e1+e2; //0
+    std::cout<<e3.eval()<<std::endl;
+    std::cout<<e1.eval()<<std::endl;
 
 }
 

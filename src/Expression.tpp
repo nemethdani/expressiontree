@@ -174,40 +174,53 @@ std::string Expression<T>::getPrefix()const{
 }
 
 
-// /// Kétkifejezést összead
-// /// @return - kifejezések összege
-// template <typename T>
-// Expression<T> Expression<T>::operator+(const Expression& e){}
 
-// /// Kétkifejezést összead helyben
-// /// @return - kifejezések összege helyben
+template <typename T>
+Expression<T> Expression<T>::operator+(const Expression& e){
+    // Expression<T> masolat=(*this);
+    // masolat+=e;
+    return Expression<T>(*this)+=e;
+}
+
+
 template <typename T>
 Expression<T>& Expression<T>::operator+=(const Expression& e){
     hozzafuz(e,'+');
     return (*this);
 }
 
-// /// Kétkifejezést kivon
-// /// @return - kifejezések kulonbsege
-// template <typename T>
-// Expression<T> Expression<T>::operator-(const Expression& e){}
-// /// Kétkifejezést kivon helyben
-// /// @return - kifejezések kulonbsege helyben
-// template <typename T>
-// Expression<T>& Expression<T>::operator-=(const Expression& e){}
-// /// Kétkifejezést szoroz
-// /// @return - kifejezések szorzata
-// template <typename T>
-// Expression<T> Expression<T>::operator*(const Expression& e){}
-// /// Kétkifejezést szoroz helyben
-// /// @return - kifejezések szorzata helyben
-// template <typename T>
-// Expression<T>& Expression<T>::operator*=(const Expression& e){}
-// /// Kétkifejezést eloszt egymassal
-// /// @return - kifejezések hanyadosa
-// template <typename T>
-// Expression<T> Expression<T>::operator/(const Expression& e){}
-// /// Kétkifejezést eloszt egymassal helyben
-// /// @return - kifejezések hanyadosa helyben
-// template <typename T>
-// Expression<T>& Expression<T>::operator/=(const Expression& e){}
+
+template <typename T>
+Expression<T> Expression<T>::operator-(const Expression& e){
+    return Expression<T>(*this)-=e;
+}
+
+
+template <typename T>
+Expression<T>& Expression<T>::operator-=(const Expression& e){
+    hozzafuz(e,'-');
+    return (*this);
+}
+
+
+template <typename T>
+Expression<T> Expression<T>::operator*(const Expression& e){
+    return Expression<T>(*this)*=e;
+}
+
+template <typename T>
+Expression<T>& Expression<T>::operator*=(const Expression& e){
+    hozzafuz(e,'*');
+    return (*this);
+}
+
+template <typename T>
+Expression<T> Expression<T>::operator/(const Expression& e){
+    return Expression<T>(*this)/=e;
+}
+
+template <typename T>
+Expression<T>& Expression<T>::operator/=(const Expression& e){
+    hozzafuz(e,'/');
+    return (*this);
+}
